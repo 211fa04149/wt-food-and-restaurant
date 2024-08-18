@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html ng-app="registrationApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: url('2_2.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .login-box {
+            background-color: rgba(255, 255, 255, 0.4); /* More transparent background */
+            padding: 20px; /* Reduce padding */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 300px; /* Reduce the width */
+            transition: background-color 0.3s ease;
+        }
+
+        .login-box h2 {
+            color: #4a90e2;
+            font-size: 24px; /* Reduce font size */
+            margin-bottom: 15px; /* Reduce margin */
+        }
+
+        .login-box input {
+            width: 100%;
+            padding: 5px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .login-box button {
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-box button:hover {
+            background-color: #357abf;
+        }
+
+        .avatar {
+            font-size: 40px; /* Reduce the avatar size */
+            color: #4a90e2;
+        }
+
+        .login-box-theme {
+            background-color: rgba(220, 220, 220, 0.6); /* Light gray with more transparency */
+            color: #333;
+        }
+
+        .highlighted-captcha {
+            background-color: yellow;
+            font-weight: bold;
+            font-size: 18px; /* Keep font size the same */
+        }
+
+        .countdown {
+            font-size: 18px; /* Reduce font size */
+            color: red; /* Color of the countdown timer text */
+        }
+
+    </style>
+    <script>
+        var app = angular.module('registrationApp', []);
+
+        app.controller('RegistrationController', function ($scope, $interval) {
+            $scope.backgroundImages = [
+                '1_1.jpg',
+                '2_1.jpg',
+                 // Add more image filenames
+            ];
+            $scope.currentBackgroundIndex = 0;
+
+            $interval(function () {
+                $scope.changeBackground();
+            }, 5000); // Change background every 5 seconds
+
+            $scope.updateBackground = function () {
+                var imageUrl = $scope.backgroundImages[$scope.currentBackgroundIndex];
+                document.body.style.background = 'url(' + imageUrl + ') no-repeat center center fixed';
+                document.body.style.backgroundSize = 'cover';
+            };
+
+            $scope.generateCaptcha = function () {
+                const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                let captcha = '';
+                for (let i = 0; i < 6; i++) {
+                    const randomIndex = Math.floor(Math.random() * chars.length);
+                    captcha += chars.charAt(randomIndex);
+                }
+                $scope.generatedCaptcha = captcha;
+                $scope.captchaExpired = false;
+
+                // Set a timer for captcha expiration (e.g., 2 minutes)
+                $interval(function () {
+                    $scope.captchaExpired = true;
+                }, 120000); // 2 minutes in milliseconds
+            };
+
+            $scope.updateCountdown = function (seconds) {
+                $scope.countdown = seconds;
+            };
+
+            $scope.startCountdown = function () {
+                let remainingSeconds = 120; // Set the countdown duration in seconds
+
+                const countdownInterval = $interval(function () {
+                    $scope.updateCountdown(remainingSeconds);
+                    remainingSeconds--;
+
+                    if (remainingSeconds < 0) {
+                        $scope.captchaExpired = true;
+                        $interval.cancel(countdownInterval);
+                    }
+                }, 1000); // Update every 1 second
+            };
+
+            $scope.validate = function () {
+                if ($scope.username === "") {
+                    alert("Please enter your username");
+                    return false;
+                }
+
+                if (!/^[0-9]/.test($scope.username)) {
+                    alert("Username must start with a digit");
+                    return false;
+                }
+
+                if ($scope.username.length < 10) {
+                    alert("Username must contain at least 10 digits");
+                    return false;
+                }
+
+                if ($scope.password === "") {
+                    alert("Please enter your password");
+                    return false;
+                }
+
+                if ($scope.password.length < 5 || $scope.password.length > 15) {
+                    alert("Password must be 5 to 15 characters only");
+                    return false;
+                }
+
+                if (!/[A-Z]/.test($scope.password) || !/[a-z]/.test($scope.password) || !/\d/.test($scope.password)) {
+                    alert("Incorrect Password!!");
+                    return false;
+                }
+
+                if (/[;.:]/.test($scope.password)) {
+                    alert("Password cannot contain the symbols ; . :");
+                    return false;
+                }
+                if ($scope.password !== $scope.confirmPassword) {
+                    alert("Passwords do not match");
+                    return false;
+                }
+
+                if ($scope.captchaInput !== $scope.generatedCaptcha) {
+                    alert("CAPTCHA code is incorrect");
+                    return false;
+                }
+
+                return true; // Allow form submission if all checks pass
+            };
+        
+
+
+
+
+            $scope.changeBackground = function () {
+                $scope.currentBackgroundIndex = ($scope.currentBackgroundIndex + 1) % $scope.backgroundImages.length;
+                $scope.updateBackground();
+            };
+
+            $scope.updatePasswordStrength = function (password) {
+                const regex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
+                if (regex.test(password)) {
+                    $scope.passwordStrengthText = 'Strong';
+                    $scope.passwordStrengthStyle = { color: 'green' };
+                } else {
+                    $scope.passwordStrengthText = 'Weak';
+                    $scope.passwordStrengthStyle = { color: 'red' };
+                }
+            };
+
+            $scope.generateCaptcha();
+            $scope.updateCountdown(120); // Initialize countdown
+            $scope.startCountdown(); // Start the countdown timer
+            $scope.updateBackground();
+        });
+    </script>
+</head>
+<body ng-controller="RegistrationController">
+    <div class="login-box login-box-theme">
+        <h2>Registration</h2>
+        <form name="form" method="post" action="registration.php" ng-submit="validate()">
+            <i class="fa fa-user avatar"></i>
+            <input type="text" name="username" ng-model="username" placeholder="Register Number" required>
+            <input type="password" name="password" ng-model="password" ng-model-options="{ updateOn: 'input' }" ng-change="updatePasswordStrength(password)" placeholder="Password" required>
+            <div class="password-strength">
+                <span ng-style="passwordStrengthStyle">{{ passwordStrengthText }}</span>
+            </div>
+            <input type="password" name="confirm-password" ng-model="confirmPassword" placeholder="Confirm Password"
+                required>
+            <input type="text" name="captcha_input" ng-model="captchaInput" placeholder="Enter the CAPTCHA code" required>
+            <div class="highlighted-captcha">{{ generatedCaptcha }}</div>
+            <div class="countdown" ng-show="!captchaExpired">Time remaining: {{ countdown }} seconds</div>
+            <div ng-show="captchaExpired">Captcha Expired</div>
+            <button type="submit" class="rotate" ng-disabled="captchaExpired">Register</button><br>
+            <br><!-- comment -->
+            <a href='login.html'>Login Now</a>
+        </form>
+    </div>
+</body>
+</html>

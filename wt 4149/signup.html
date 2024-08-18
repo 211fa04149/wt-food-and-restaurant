@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="signupApp">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+      body {
+      background-image: url("images/table.jpeg");
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      font-family: Oswald;
+      margin: 0;
+      padding: 0;
+    
+    }
+
+    .signup-container {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 400px;
+    }
+
+    .signup-title {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .error-message {
+      color: red;
+      font-size: 14px;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-controller="signupController">
+  <div class="signup-container">
+    <h1 class="signup-title">Sign Up</h1>
+    <form ng-submit="submitForm()" method="POST" action="signup.php" name="signupForm" novalidate>
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" ng-model="user.username" required>
+        <div class="error-message" ng-show="signupForm.username.$dirty && signupForm.username.$error.required">
+          Please enter a username.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" ng-model="user.email" required>
+        <div class="error-message" ng-show="signupForm.email.$dirty && signupForm.email.$error.required">
+          Please enter an email address.
+        </div>
+        <div class="error-message" ng-show="signupForm.email.$dirty && signupForm.email.$error.email">
+          Please enter a valid email address.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" ng-model="user.password" required>
+        <div class="error-message" ng-show="signupForm.password.$dirty && signupForm.password.$error.required">
+          Please enter a password.
+        </div>
+        <div class="error-message" ng-show="signupForm.password.$dirty && signupForm.password.$error.minlength">
+          Password must be at least 6 characters long.
+        </div>
+      </div>
+      <button type="submit">Sign Up</button>
+    </form>
+  </div>
+
+  <script>
+    var app = angular.module('signupApp', []);
+
+    app.controller('signupController', function($scope) {
+      $scope.user = {};
+
+//      $scope.submitForm = function() {
+//        // Validate the form inputs
+//        if ($scope.validateUsername() && $scope.validateEmail() && $scope.validatePassword()) {
+//          alert('Sign-up successful!'); // You can replace this with your own logic
+//          $scope.user = {}; // Clear the form
+//          $scope.signupForm.$setPristine(); // Reset form state
+//        }
+//      };
+
+      $scope.validateUsername = function() {
+        const usernameValue = $scope.user.username;
+        return usernameValue && usernameValue.trim() !== '';
+      };
+
+      $scope.validateEmail = function() {
+        const emailValue = $scope.user.email;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailValue && emailRegex.test(emailValue);
+      };
+
+      $scope.validatePassword = function() {
+        const passwordValue = $scope.user.password;
+        return passwordValue && passwordValue.trim().length >= 6;
+      };
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html ng-app="alumniApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+        var app = angular.module('alumniApp', []);
+
+        app.controller('MainController', function ($scope) {
+            $scope.currentIndex = 0;
+
+            $scope.showSlide = function (index) {
+                var slides = angular.element(document.querySelector('.slides'));
+                var totalSlides = angular.element(document.querySelectorAll('.slide')).length;
+
+                if (index >= totalSlides) {
+                    $scope.currentIndex = 0;
+                } else if (index < 0) {
+                    $scope.currentIndex = totalSlides - 1;
+                } else {
+                    $scope.currentIndex = index;
+                }
+
+                var translateValue = -$scope.currentIndex * 100 + '%';
+                slides.css('transform', 'translateX(' + translateValue + ')');
+            };
+
+            
+            setInterval(function () {
+                $scope.$apply(function () {
+                    $scope.showSlide($scope.currentIndex + 1);
+                });
+            }, 1500); 
+        });
+
+        app.controller('FooterController', function ($scope) {
+            $scope.currentYear = new Date().getFullYear();
+        });
+    </script>
+</head>
+
+<body ng-controller="MainController" style="background-color: rgb(253, 250, 247);">
+
+    <div class="header">
+        <div class="logo">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsmQFzyuhgatBCcZ95dVi2DDAKE8Q3Enb7Jw&usqp=CAU"
+                alt="logo" width="100" height="100">
+        </div>
+        <div class="buttoncol">
+            <nav>
+                <a><i class="fa fa-fw fa-home"></i> Home</a>
+                <a >Alumni Details</a>
+                <a >Events</a>
+                <a >Gallery</a>
+                <a >Contribute</a>
+                <a ><i class="fa fa-fw fa-envelope"></i> Contact</a>
+                <a href="login.html"><i class="fa fa-fw fa-user"></i> Login</a>
+            </nav>
+        </div>
+    </div>
+
+    <div class="slider-container">
+        <div class="slides">
+          
+          <div class="slide"><img class="one"src="https://www.sfasu.edu/sites/default/files/2023-03/ut-system-hero-02.jpg" alt="Slide 2"></div>
+          <div class="slide"><img class="one"src="https://www.utexas.edu/sites/default/files/styles/utexas_hero_photo_image/public/tower_hero_v2.jpg?itok=qeAeGv2" alt="Slide 3"></div>
+          <div class="slide"><img class="one"src="https://i.ytimg.com/vi/K0bn8emS8CU/maxresdefault.jpg" alt="Slide 1"></div>
+          <div class="slide"><img class="one"src="https://admissions.utexas.edu/wp-content/themes/UTadmissions/images/vidThumb.jpg" alt="Slide 3"></div>
+         
+        </div>
+      </div>
+
+    <div class="row">
+        <div class="column" style="background-color:lightcyan">
+            <h2 style="color:rgb(209, 6, 6)">A Welcome  Message to Alumni</h2>
+            <p style="font-size: larger;color:black">🎓 Greetings, fellow alumni! 🎓<br>
+    
+                Reflecting on our journey, it's incredible how far we've come since our days at University of Texas. The bonds we formed, the knowledge we gained, and the experiences we shared have shaped us into the individuals we are today.<br>
+                
+                As we step into the world beyond these hallowed halls, let's cherish the memories that unite us. Whether we're pioneering in our careers, creating meaningful change, or exploring new horizons, let our alma mater's spirit guide us.
+                
+                Let's remember the late-night study sessions, the inspiring professors who ignited our passions, and the friendships that became our lifelines. As ambassadors of University of Texas, let's continue to exemplify its values and contribute positively to our communities.<br>
+                
+                Stay connected, for our network is a wellspring of support, inspiration, and opportunity. Let's celebrate our achievements, share our stories, and uplift one another in this incredible journey of life.
+                
+                Here's to us—the dreamers, the thinkers, the doers. May our paths be illuminated by the knowledge we've gained and the friendships we've forged. As we spread our wings, let's carry the essence of University of Texas with us, making a mark that resonates for generations to come.<br>
+                
+                With pride and excitement,<br>[University of Texas]</p> 
+        </div>
+        <div class="column" style="background-color:white">
+          
+            
+                <img  style="margin-left:5px;height:495px;width:740px;"src="https://news.utexas.edu/wp-content/uploads/2022/05/MicrosoftTeams-image-1.jpg">
+      
+            
+          </div>
+        </div>
+      </div>
+      <div class="row1">
+        <div class="column1" style="background-color:aliceblue">
+            <h1 style="color:blueviolet;text-decoration: underline;">Famous Alumni's</h1>
+          <img style= " margin-left:100px;height:300px;width:200px;;"src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Tom_C._Clark.jpg/800px-Tom_C._Clark.jpg">
+          <p>Former Associate Justice of the U.S. Supreme Court, Tom C. Clark in the Oval Office in 1967.</p>
+            With pride and excitement,<br>[University of Texas]</p> 
+            <img style= " margin-left:100px;height:300px;width:200px;"src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/President_Ronald_Reagan_with_Mary_Lou_Retton_and_the_1984_United_States_Olympic_team.jpg/800px-President_Ronald_Reagan_with_Mary_Lou_Retton_and_the_1984_United_States_Olympic_team.jpg">
+            <p>President Ronald Reagan with Mary Lou Retton and The 1984 United States Olympic Team at The Century Plaza Hotel in Los Angeles California, 8/13/1984</p>
+            <img style= " margin-left:100px;height:300px;width:200px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Laura_Bush_portrait.jpg/330px-Laura_Bush_portrait.jpg">
+            <p>Bush graduated from Southern Methodist University in 1968 with a bachelor's degree in education, and took a job as a second grade teacher. After attaining her master's degree in library science at the University of Texas at Austin</p>
+        </div>
+        <div class="column2" style="background-color:rgb(239, 237, 236);">
+          <h1 style="color:coral;text-decoration: underline;" >History</h2>
+          <p style="color:cadetblue;font-size:19px;">Founded in 1883, the University of Texas at Austin (UT Austin) is a renowned public research university located in Austin, Texas. It began with a vision to provide higher education opportunities in the state. The university's growth was bolstered by the 40 acres of land endowed by the Texas Constitution.
+
+            Over the years, UT Austin has emerged as a leading institution with a strong emphasis on research and academic excellence. It played a crucial role in the development of the Texas economy and has produced numerous influential alumni.
+            
+            The university's accomplishments include significant contributions to fields like technology, business, and the arts. Notably, it is home to the Lyndon B. Johnson Presidential Library and the Cockrell School of Engineering.
+            
+            UT Austin has faced challenges as well, such as its role in the integration of African-American students during the civil rights movement. Despite these challenges, it has remained a bastion of innovation, diversity, and education in Texas and beyond.</p>
+        </div>
+        <div class="column1" style="background-color:aliceblue;">
+          <h1 style="color:darkgreen;text-decoration: underline;">Magazines</h1>
+          <img style= " margin-left:80px;height:300px;width:300px;margin-bottom: 50px;" src="https://www.mccombs.utexas.edu/media/MC_SPRING-2022_COVER-FINAL2.jpg">
+          <img style= " margin-left:80px;height:300px;width:300px;margin-bottom: 50px;" src="https://www.utep.edu/magazine/_Files/images/utep-magazine-summer-2023.jpg">
+          <img style= " margin-left:60px;height:350px;width:350px;margin-bottom: 50px;" src="https://cns.utexas.edu/sites/default/files/uploads/images/default/the-texas-scientist-cover-2016.jpg">
+          <img style= " margin-left:80px;height:300px;width:300px;margin-bottom: 50px;" src="https://soa.utexas.edu/sites/default/files/styles/utexas_image_style_900w/public/2022-11/platform_2022-23_teachingfornext-cover.png?itok=CL0quw4W">
+          <img style= " margin-left:60px;height:350px;width:350px;margin-bottom: 50px;" src="https://cns.utexas.edu/sites/default/files/uploads/images/default/the-texas-scientist-cover-2015.jpg">
+        </div>
+      </div>
+
+    <footer ng-controller="FooterController">
+        <p style="text-align: left; font-size: 20px;">&copy; {{currentYear}} Your Website. All rights reserved.</p>
+        <button class="button" style="position: absolute; top: 1807px; right: 150px;">
+            <a href="login.html">Coordinator login</a>
+        </button>
+    </footer>
+</body>
+
+</html>

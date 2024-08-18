@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="style.css">
+<title>Contribution</title>
+<style>
+    .event {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    width: 400px;
+    height: 400px;
+    margin-left: 130px;
+  }
+  .event h2 {
+    color: #333;
+    margin-bottom: 0.5rem;
+  }
+  .event p {
+    color: #666;
+    margin-bottom: 1rem;
+  }
+  .event button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  div.card-container {
+    display: flex;
+    justify-content: space-between; 
+    gap: 20px; 
+  }
+
+  div.card {
+    width: 600px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    height: 400px;
+    margin-left: 90px;
+    margin-right: 30px;
+  }
+
+  div.header1 {
+    background-color: white;
+    color: red;
+    padding: 10px;
+    font-size: 10px;
+  }
+
+  div.container {
+    padding: 10px;
+  }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
+<script>
+var app = angular.module('myApp', []);
+
+app.controller('MainController', function($scope) {
+    $scope.imageUrl = "https://www.almashines.io/wp-content/uploads/2020/12/video-conferencing-illustration-300x162.jpg";
+    $scope.title = "How alumni can help current students in their career success";
+
+    $scope.articles = [
+        {
+            image: "https://www.almashines.io/wp-content/uploads/2021/09/1645172219869-300x197.jpeg",
+            title: "5 Virtual Alumni Meet Ideas to Boost Alumni....",
+            link: "c1.html"
+        },
+        {
+            image: "https://www.almashines.io/wp-content/uploads/2021/09/unnamed-300x200.jpg",
+            title: "5 Hacks To Ensure Your Alumni Meet Becomes....",
+            link: "c2.html"
+        },
+        {
+            image: "https://www.almashines.io/wp-content/uploads/2022/05/fall-career-fair-063-092816.jpeg",
+            title: "How Alumni can help the Current Students in the....",
+            link: "container.html"
+        }
+    ];
+
+    $scope.openLink = function(link) {
+        window.open(link, "_self");
+    };
+});
+</script>
+</head>
+<body ng-controller="MainController">
+    <img ng-src="{{imageUrl}}" style="height: 500px; width: 1100px; margin-left: 190px; margin-top: 40px;">
+    <h1 style="margin-left:130px;">{{title}}</h1>
+    <hr style="margin-left:130px; margin-right: 120px;">
+    <div>
+        <img style="margin-left:130px; margin-right: 120px;" src="https://secure.gravatar.com/avatar/21b33d83b86a58484cb91ba7933102a9?s=96&d=mm&r=g">
+        <span style="position: absolute; top: 650px; left: 300px;">Written by Tushar Agarwal</span>
+    </div>
+    <hr style="margin-left:130px; margin-right: 120px;">
+    <p style="font-size:20px; font-family: 'Times New Roman', Times, serif; margin-left:130px; margin-right: 120px;">
+        <strong style="font-size:23px;">Why Virtual Alumni Events?</strong><br>
+        Without a doubt, alumni engagement is vital for inculcating a sense of community, securing donations, and strengthening your institute’s brand presence.
+        
+        With the second wave of infection raging across the world, you can expect more event cancellations. Virtual events can thus help alumni adjust to the new normal.
+        
+        Given such unforeseen circumstances, you need to adopt a new digital engagement strategy for alumni.
+        
+        Here’s why:
+        
+        <br><strong style="font-size:23px;">Encouraging Support and Contribution</strong>
+        The pandemic has been tough for universities and alumni alike. Besides rapidly adopting the online learning format, colleges had to ensure continued contributions amidst the viral outbreak.
+        
+        A major part of the monetary support comes from alumni associations. When alumni find their network to be highly valuable, they are likely to give back more than what they had in mind previously.
+        
+        Did you know that the alumni giving rate is a crucial metric of success?
+        
+        Yes, as a matter of fact, your university can rank higher with alumni donations. For instance, Princeton University is among the top-ranked universities in the United States. The alumni giving rate in Princeton is an incredible 59%.
+        
+        Since the conventional get-togethers are no longer feasible, the virtual alumni events can prove to be a boon for your fiscal security. You just have to ensure that the virtual events for college alumni offer great professional and social value for alma maters.
+        
+        Consequently, with the help of virtual alumni reunion, you can enhance the prestige and ratings of your university.
+        
+        <br><strong style="font-size:23px;">Offering Networking Opportunities with Virtual Alumni Events</strong>
+        As you may already know that the unemployment rate has skyrocketed during the COVID-19 pandemic. Hence, people are seeking new job opportunities. Unfortunately, the job hunt has become more challenging than ever due to the global economic crisis.
+        
+        In that case, alumni offices can organize online alumni events that could serve as valuable networking opportunities. Besides, alumni get to interact with their community during these tough times further strengthening the relations. 
+        <br><strong style="font-size:23px;">AlmaShines Alumni Platform</strong>
+        The COVID-19 pandemic has given rise to a plethora of web conferencing programs that have facilitated online lectures and business meetings.
+        
+        However, AlmaShines Alumni Platform offers a lot more than just that. Through our software for alumni management, you can truly offer a unique experience during virtual alumni events.
+        
+        Through VAMES you can implement tons of virtual alumni engagement ideas such as video contests, quizzes, and photo contests to create a memorable experience – all in real-time!
+        
+        With AlmaShines Alumni Platform, you can also:
+        
+        Reward attendee activities
+        Create registration forms and track responses
+        Create an online ticketing module
+        Drive placements
+        Unveil career enhancement opportunities
+        Conduct pre-event engagement campaigns to encourage alumni participation
+        Maximize alumni participation through social media channels, text messages, and email
+        <br><strong style="font-size:23px;">Wrap-up</strong>
+        We have highlighted the significance of virtual alumni events during and after the COVID-19 pandemic.
+        
+        By hosting virtual events for alumni, you can bring students and alumni together from different corners of the world. Besides, strengthening your institute’s brand presence, credibility, and financial support, you can also help alumni find new job opportunities.
+        
+        What are you waiting for? Request a free 30-minute demo with AlmaShines here and get introduced to the virtual world!
+        
+        All you have to do is enter your name, designation, email ID, contact number, and institute name and you are good to go!
+    </p>
+    <hr style="margin-left:130px; margin-right: 120px;">
+    <h1 style="margin-left:130px;">Related Articles</h1>
+    <div class="card-container">
+        <div class="card" ng-repeat="article in articles">
+            <div class="header1">
+                <img ng-src="{{article.image}}" style="width:300px;height:200px;">
+                <br>
+                <h1>{{article.title}}</h1>
+                <br>
+                <br>
+                <button ng-click="openLink(article.link)" style="background-color:lavenderblush">Read more</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="alumniApp">
+<head>
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni Photo Gallery</title>
+    <style>
+        .header
+{
+    background-color:#0bc2ef;
+    padding: 5px;
+    padding-bottom:-30px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom:-45px;
+    height:90px;
+}
+.logo
+{
+    display:flex;
+    align-items: center;
+    height:80px;
+}
+.logo img
+{
+    margin-left:20px;
+    height:80px;
+    width:80px;
+}
+
+nav{
+    color:white;
+    text-align: right;
+    padding:15px;
+}
+nav a{
+    padding:15px;
+    margin-top:10 px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    color:white;
+    font-size: 20px;
+}
+nav input
+{
+    margin-top:20px;
+    text-size-adjust:inherit;
+
+}
+.buttoncol input
+{
+    background-color:darkgray;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-right: 10px;
+}
+.buttoncol nav
+{
+    padding-top: 40px;
+}
+.buttoncol input
+{
+    margin-top: 35px;
+    
+    padding-bottom: -4px;
+}
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color:aquamarine;
+            color: white;
+            text-align: center;
+            padding: 1px;
+        }
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body ng-controller="galleryController">
+      <nav>
+        <div class="header">
+          <div class="logo">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsmQFzyuhgatBCcZ95dVi2DDAKE8Q3Enb7Jw&usqp=CAU" alt="logo" width="100" height="100">
+          </div>
+          <div class="buttoncol">
+                
+           <a  href="home.html"><i class="fa fa-fw fa-home"></i> Home</a> 
+           <a href="details.html">Alumni Details</a>
+           <a href="events.html">Events</a>
+           <a href="gallery.html">Gallery</a>
+           <a href="container.html">Contribute</a>
+           <a href="contact.html"><i class="fa fa-fw fa-envelope"></i> Contact</a> 
+           <a href="login.html"><i class="fa fa-fw fa-user"></i> Login</a>
+                
+          </div>
+        </div>
+      </nav>
+      <br>
+      <br>
+    <header>
+        <h1 style="font-family: Times New Roman, sans-serif; color:black">GALLERY</h1>
+        <marquee> <h2 style=" font-family: Times New Roman, sans-serif;color:maroon">UNIVERSITY OF TEXAS</h2></marquee>
+    </header>
+
+    <div class="gallery-container">
+        <div class="gallery-item">
+            <img src="image.jpg" alt="Alumni Event 1">
+		<p style="text-align: center;">Shooting Spree</p>
+        </div>
+        <div class="gallery-item">
+            <img src="image2.jpg" alt="Alumni Event 2">
+                <p style="text-align: center;">View of campus </p>
+        </div>
+        <div class="gallery-item">
+            <img src="image4.jpg" alt="Alumni Event 3">
+                <p style="text-align: center;">Tower Shootings</p>
+        </div>
+        <!-- Add more gallery items as needed -->
+        <div class="gallery-item">
+            <img src="image5.jpg" alt="Alumni Event 4">
+                <p style="text-align: center;">Dick LeClair Speaking at Rally</p>
+        </div>
+        <div class="gallery-item">
+            <img src="image6.jpg" alt="Alumni Event 5">
+                <p style="text-align: center;">The Supreme Court Hears Hears Affirmative Action Case Regarding Admissions To Texas University</p>
+        </div>
+        <div class="gallery-item">
+            <img src="image8.jpg" alt="Alumni Event 6">
+		<p style="text-align: center;">Arkansas v Texas</p>
+        </div>
+        <div class="gallery-item">
+            <img src="image9.jpg" alt="Alumni Event 7">
+		<p style="text-align: center;">Football</p>
+        </div>
+        <div class="gallery-item">
+            <img src="image10.jpg" alt="Alumni Event 8">
+		<p style="text-align: center;">Texas Women’s Track and Field Celebrates with UT Tower Lighting</p>
+        </div>
+        <div class="gallery-item">
+            <img src="image11.jpg" alt="Alumni Event 9">
+		<p style="text-align: center;">Gym</p>
+        </div>
+        <div class="gallery-item">
+            <img src="image13.jpg" alt="Alumni Event 10">
+		<p style="text-align: center;">Woman Hides in Fear of Sniper</p>
+        </div>
+        <div class="gallery-item">
+            <img src="image14.jpg" alt="Alumni Event 11">
+		<p style="text-align: center;">University of Texas Football Stadium</p>
+        </div>
+        <div class="gallery-item">
+            <img src="image15.jpg" alt="Alumni Event 12">
+		<p style="text-align: center;">View of University Of Texas</p>
+        </div>
+        <div class="gallery-item">
+            <img src="image17.jpg" alt="Alumni Event 13">
+		<p style="text-align: center;">Group of People Sitting Inside Room</p>
+        </div>
+        <div class="gallery-item">
+            <img src="image18.jpg" alt="Alumni Event 14">
+		<p style="text-align: center;">Photography of People Graduating</p>
+        </div>
+        <div class="gallery-item">
+            <img src="image19.jpg" alt="Alumni Event 15">
+		<p style="text-align: center;">Library High Angle Photro</p>
+        </div>
+        <div class="gallery-item">
+            <img src="image20.jpg" alt="Alumni Event 16">
+		<p style="text-align: center;">Medical Practitioners doing a research on a Lab</p>
+        </div>
+        <div class="gallery-item">
+            <img src="image3.jpg" alt="Alumni Event 17">
+		<p style="text-align: center;">University Of Texas Tower</p>
+        </div>
+        <div class="gallery-item">
+            <img src="image16.jpg" alt="Alumni Event 18">
+		<p style="text-align: center;">Brown Wooden Shelf With Books</p>
+        </div>
+        <div class="gallery-item">
+            <img src="image12.jpg" alt="Alumni Event 19">
+		<p style="text-align: center;">Athletics</p>
+        </div>
+        <div class="gallery-item">
+            <img src="image7.jpg" alt="Alumni Event 20">
+		<p style="text-align: center;">Policeman Pointing to Bullet Holes from Shooting Spree</p>
+        </div>
+
+    </div>
+
+    <script>
+        // Define the AngularJS module
+        var app = angular.module('alumniApp', []);
+
+        // Define the AngularJS controller
+        app.controller('galleryController', function($scope) {
+            // Your controller logic goes here
+            // You can use $scope to bind data between the controller and the view
+        });
+    </script>
+</body>
+</html>

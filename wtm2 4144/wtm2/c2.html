@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="style.css">
+<title>Contribution</title>
+<style>
+    .event {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    width:400px;
+    height:400px;
+    margin-left: 130px;
+  }
+  .event h2 {
+    color: #333;
+    margin-bottom: 0.5rem;
+  }
+  .event p {
+    color: #666;
+    margin-bottom: 1rem;
+  }
+  .event button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  div.card-container {
+  display: flex;
+  justify-content: space-between; /* Distribute items evenly along the row */
+  gap: 20px; /* Add some spacing between cards */
+}
+
+div.card {
+  width: 600px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  height: 400px;
+  margin-left: 90px;
+  margin-right:30px;
+}
+
+div.header1 {
+  background-color: white;
+  color: red;
+  padding: 10px;
+  font-size: 10px;
+}
+
+div.container {
+  padding: 10px;
+}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
+<script>
+var app = angular.module('myApp', []);
+
+app.controller('MainController', function($scope) {
+    $scope.imageUrl = "https://img2.storyblok.com/f/45434/1440x810/a475752161/hult-graduation2-1440x810.jpg";
+    $scope.title = "How alumni can help current students in their career success";
+
+    $scope.articles = [
+        {
+            image: "https://www.almashines.io/wp-content/uploads/2021/09/1645172219869-300x197.jpeg",
+            title: "5 Virtual Alumni Meet Ideas to Boost Alumni....",
+            link: "c1.html"
+        },
+        {
+            image: "https://www.almashines.io/wp-content/uploads/2022/05/fall-career-fair-063-092816.jpeg",
+            title: "How Alumni can help the Current Students in the....",
+            link: "container.html"
+        },
+        {
+            image: "https://www.almashines.io/wp-content/uploads/2020/12/video-conferencing-illustration-300x162.jpg",
+            title: "The Ultimate Guide to Conduct Virtual Alumni....",
+            link: "c3.html"
+        }
+    ];
+
+    $scope.openLink = function(link) {
+        window.open(link, "_self");
+    };
+});
+</script>
+</head>
+<body ng-controller="MainController">
+    <img ng-src="{{imageUrl}}" style="height:500px;width:1100px;margin-left:190px;margin-top:40px;">
+    <h1 style="margin-left:130px;">{{title}}</h1>
+    <hr style="margin-left:130px;margin-right: 120px;">
+    <div>
+            <img style="margin-left:130px;margin-right: 120px;"src="https://secure.gravatar.com/avatar/21b33d83b86a58484cb91ba7933102a9?s=96&d=mm&r=g">
+            <span style="position: absolute;top:650px;left:300px;">Written by Tushar Agarwal</span>
+    </div>
+    <hr style="margin-left:130px;margin-right: 120px;">
+    <p style="font-size:20px;font-family: 'Times New Roman', Times, serif;margin-left:130px;margin-right: 120px;">
+        <strong style="font-size:23px;">1. Decide a Dress Code/Theme</strong><br>
+        Why can only a Halloween party have a dress code or a theme? Surely, you can plan your upcoming alumni meet with a brilliant party theme in mind. For starters, you can go for the most famous ‘Friends Theme’ or ‘Harry Potter Theme’ to attract the maximum number of your alumni community members. 
+        You can bring down the Marvel Series stars on your campus or create a jungle-theme party for alumni to have some fun while meeting each other after years. 
+        A few more theme ideas include throwing a retro theme meeting or lighting up the aesthetics with snow-cone decorations. 
+        <img style="margin-left:330px;margin-right: 120px;width:500px;height:300px;" src="https://www.almashines.io/wp-content/uploads/2021/09/unnamed-1.jpg"> 
+        <br><strong style="font-size:23px;">2. Play Treasure Hunt</strong><br>
+        One of the most popular and evergreen ideas to make any event, meeting, or party interesting, entertaining, and forever memorable is to play treasure hunt. The same thing you can incorporate in your alumni meet itinerary for a change.
+        Make multiple teams, including equal members, based on the total number of alumni participants in the meeting. Make tweaked word riddles for the players and hide the hint within. 
+        Let them identify what the hint is targeting and how they can discover the next step to win the game. 
+        <img style="margin-left:330px;margin-right: 120px;width:500px;height:300px;" src="https://media.giphy.com/media/3o6nV5kzJHlQcJfmOQ/giphy.gif?cid=790b76117b2cf1f4cb34a8e407de5953a520d464fe9602aa&rid=giphy.gif&ct=g">
+        <br><strong style="font-size:23px;">3. Arrange Contests</strong><br>
+        There are multiple things to keep your alumni engaged during the reunion. However, organizing several contests could be a great way to instil a sense of learning while having some enjoyment. The most simple yet smart idea is to organize a Rubik’s cube contest. You can invite 5 to 10 volunteers from the alumni audience to step on the floor. Give them 60 seconds or two minutes worth of time and see who completes the Rubik’s cube first. You can also extend the time to around 10 or 15 minutes and host a contest about how many Rubik’s cubes one can complete in the meanwhile and declare a winner. 
+        Except this, you can organize an extempore contest and gift a scholarship voucher or library membership to the winning alumni member. In addition to playing Rubik’s cube and an extempore competition, you can conduct singing, dancing, poetry recitation, and book reading contests in an alumni meet, too. It is not always necessary to have typical alumni meet (starting from a student speech and ending with a dignitary’s thanks note!) You can always think something out of the box to spread the word about your impressive alumni meet ideas and expect a doubled participation the next time. 
+        <br><strong style="font-size:23px;">Conclusion</strong><br>
+        Your alumni are the most valuable assets for your institution. As long as you can organize a yearly reunion, you can say you are doing enough for them. Implement these hacks in your next alumni meet, and let us know whether you nailed it or not! Remember, every little effort that you make will count in maintaining alumni relations for life.  
+    </p>
+    <hr style="margin-left:130px;margin-right: 120px;">
+    <h1 style="margin-left:130px;">Related Articles</h1>
+    <div class="card-container">
+        <div class="card" ng-repeat="article in articles">
+            <div class="header1">
+                <img ng-src="{{article.image}}" style="width:300px;height:200px;">
+                <br>
+                <h1>{{article.title}}</h1>
+                <br>
+                <br>
+                <button ng-click="openLink(article.link)" style="background-color:lavenderblush">Read more</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

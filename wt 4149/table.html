@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserve</title>
+    <style>
+        body {
+            overflow-y: auto;
+            overflow-x: hidden;
+            margin: 0;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .background-image {
+            background-image: linear-gradient(
+                    rgba(0, 0, 0, 0.4),
+                    rgba(0, 0, 0, 0.4)),
+                url(https://websitedemos.net/deli-restaurant-02/wp-content/uploads/sites/637/2020/08/homepage-hero-bg-img.jpg);
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 50px;
+            border-radius: 10px;
+            text-align: center;
+            width: 300px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        .container form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container form h2 {
+            font-size: 25px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .container form input,
+        .container form select,
+        .container form button {
+            height: 40px;
+            width: 100%;
+            margin-bottom: 20px;
+            border: 2px solid black;
+            border-radius: 5px;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+
+        .container form label {
+            margin-right: 10px;
+            color: white;
+        }
+
+        .container form select {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .container form button {
+            background: black;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .container form button:hover {
+            color: #ffc107; /* Change this to your desired hover color */
+            background: black;
+        }
+
+        .dashboard {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0;
+            padding: 20px;
+            background: black;
+            color: white;
+            border-radius: 0 10px 10px 0;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            height: 200px;
+            z-index: 1;
+        }
+
+        .dashboard a {
+            text-decoration: none;
+            color: white;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+
+        .dashboard a:hover {
+            color: #ffc107; /* Change this to your desired hover color */
+        }
+    </style>
+    
+    <script>
+        function validate() {
+            var peopleInput = document.querySelector('input[name="people"]');
+            var numPeople = parseInt(peopleInput.value);
+
+            if (isNaN(numPeople) || numPeople <= 0 || numPeople > 20) {
+                alert('Please enter a valid number of people (1 to 20).');
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+
+<body class="background-image">
+    <div class="dashboard">
+        <a href="home.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a>Order</a>
+        <a href="login1.html">Signin</a>
+        <a href="signup.html">Signup</a>
+    </div>
+
+    <div class="container">
+        <h2>RESERVE A TABLE</h2>
+        <form method="post" action="table.php" method="post" onsubmit="return valiadte()">
+            
+            <input type="text" name="fname" Placeholder="Name*" required>
+            <input type="text" name="pnum" placeholder="Mobile.No*" required>
+            <input type="date" name="date" placeholder="DD\MM\YYYY" required>
+            <input type="mail" name="mail" placeholder="Active Mail*" required>
+            <label>Reservation Time:</label>
+            <input type="time" name="time" required>
+            <select name="period">
+                <option value="AM">AM</option>
+                <option value="PM">PM</option>
+            </select>
+            <input type="text" name="people" placeholder="No.of People*" required>
+            <input type="hidden" name="id" value="<?php echo $reservationId; ?>">
+            <button type="submit" name="book">Book Now</button>
+            <button type="submit" name="cancel">Cancel Reservation</button>
+        </form>
+    </div>
+</body>
+
+</html>

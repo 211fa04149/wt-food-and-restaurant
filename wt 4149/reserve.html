@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Booking</title>
+    <style>
+        body {
+      background-image: url("images/table2.jpeg");
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      font-family: Oswald;
+      margin: 0;
+      padding: 0;
+    }
+        table {
+            width: 50%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .available {
+            background-color: #aaffaa;
+        }
+
+        .reserved {
+            background-color: #ffaaaa;
+        }
+        .unreserved{
+            background-color: greenyellow;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Table Booking System</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Table Number</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Assume 10 tables for this example -->
+            <tr>
+                <td>1</td>
+                <td class='unreserved'>UnReserved</td>
+                <td><button onclick='bookTable(1)'>Book</button></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td class='reserved'>Reserved</td>
+                <td><button onclick='bookTable(2)'>Book</button></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td class='unreserved'>UnReserved</td>
+                <td><button onclick='bookTable(3)'>Book</button></td>
+            </tr>
+             <tr>
+                <td>4</td>
+                <td class='unreserved'>UnReserved</td>
+                <td><button onclick='bookTable(4)'>Book</button></td>
+             </tr><!-- comment -->
+              <tr>
+                <td>5</td>
+                <td class='reserved'>Reserved</td>
+                <td><button onclick='bookTable(5)'>Book</button></td>
+              </tr><!-- comment -->
+               <tr>
+                <td>6</td>
+                <td class='unreserved'>UnReserved</td>
+                <td><button onclick='bookTable(6)'>Book</button></td>
+               </tr><!-- comment -->
+                <tr>
+                <td>7</td>
+                <td class='reserved'>Reserved</td>
+                <td><button onclick='bookTable(7)'>Book</button></td>
+                </tr><!-- comment -->
+                 <tr>
+                <td>8</td>
+                <td class='reserved'>Reserved</td>
+                <td><button onclick='bookTable(8)'>Book</button></td>
+            </tr>
+             <tr>
+                <td>9</td>
+                <td class='unreserved'>UnReserved</td>
+                <td><button onclick='bookTable(9)'>Book</button></td>
+            </tr>
+             <tr>
+                <td>10</td>
+                <td class='unreserved'>UnReserved</td>
+                <td><button onclick='bookTable(10)'>Book</button></td>
+            </tr><!-- comment -->
+            <!-- Repeat for the remaining tables -->
+            <!-- ... -->
+        </tbody>
+    </table>
+
+    <script>
+        function bookTable(tableNumber) {
+    // This is where you can implement the booking logic, e.g., show a form for user details.
+    if (tableNumber == "1") {
+        alert("Table " + tableNumber + " is ready to book!");
+    }
+    if (tableNumber == "3") {
+        alert("Table " + tableNumber + " is ready to book!");
+    }
+    if (tableNumber == "4") {
+        alert("Table " + tableNumber + " is ready to book!");
+    }
+    if (tableNumber == "6") {
+        alert("Table " + tableNumber + " is ready to book!");
+    }
+    if (tableNumber == "9") {
+        alert("Table " + tableNumber + " is ready to book!");
+    }
+    if (tableNumber == "10") {
+        alert("Table " + tableNumber + " is ready to book!");
+    }else {
+        alert("Table " + tableNumber + " is booked!");
+    }
+}
+
+    </script>
+
+</body>
+</html>

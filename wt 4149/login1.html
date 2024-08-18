@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>Food Login</title>
+<script>
+    function validate() {
+            var a = document.form.Email.value;
+            var p = document.form.password.value;
+           
+
+            if (a === "") {
+                alert("Please enter your Email");
+                return false;
+            }
+            if (p === "") {
+                alert("Please enter your password");
+                return false;
+            }
+
+            if ((p.length < 5) || (p.length > 15)) {
+                alert("Password must be 5 to 15 characters only");
+                return false;
+            }
+
+            if (!/[A-Z]/.test(p) || !/[a-z]/.test(p) || !/\d/.test(p)) {
+                alert("Incorrect Password!!");
+                return false;
+            }
+
+            if (/[;.:]/.test(p)) {
+                alert("Password cannot contain the symbols ; . :");
+                return false;
+            }
+
+            return true; // Allow form submission if all checks pass
+    }
+</script>
+<style>
+    body {
+      background-image: url("images/tablebooking.jpeg");
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      font-family: Oswald;
+      margin: 0;
+      padding: 0;
+    }
+  .header
+{
+    background-color:#0bc2ef;
+    padding: 5px;
+    padding-bottom:-30px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom:-45px;
+    height:90px;
+}
+.logo
+{
+    display:flex;
+    align-items: center;
+    height:80px;
+}
+.logo img
+{
+    margin-left:20px;
+    height:80px;
+    width:80px;
+}
+
+nav{
+    color:white;
+    text-align: right;
+    padding:15px;
+}
+nav a{
+    padding:15px;
+    margin-top:10 px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    color:white;
+    font-size: 20px;
+}
+nav input
+{
+    margin-top:20px;
+    text-size-adjust:inherit;
+
+}
+.buttoncol input
+{
+    background-color:darkgray;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-right: 10px;
+}
+.buttoncol nav
+{
+    padding-top: 40px;
+}
+.buttoncol input
+{
+    margin-top: 35px;
+    
+    padding-bottom: -4px;
+}
+  #sp{
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('img1.jpg') no-repeat center center fixed;
+    background-size: cover;
+  }
+
+  .login-box {
+    background-color:whitesmoke; 
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 400px;
+  }
+
+  .login-box h2 {
+    color: #4a90e2;
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .quote {
+    font-style: italic;
+    color:black;
+    margin-bottom: 20px;
+  }
+
+  .login-box input {
+    width: 100%;
+    padding: 5px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .login-box button {
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+ 
+  .login-box button:hover {
+    background-color: #357abf;
+  }
+</style>
+</head>
+<body>
+  <br><br>
+  <div id="sp">
+  <div class="login-box">
+    <h2>Welcome</h2>
+    <form name="form" action="login1.php" method="post" onsubmit="return validate()">
+      <input type="text" placeholder="Enter email" id="Email" name="Email" required>
+      <input type="password" placeholder="Password" id="password" name="password" required>
+      <button type="submit">Login</button><br>
+    </form>
+  </div>
+</div>
+</body>
+</html>

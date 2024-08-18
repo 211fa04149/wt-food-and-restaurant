@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html ng-app="universityLoginApp">
+<head>
+    <title>Forgot Password</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            background: url('2_2.jpg') center/cover no-repeat;
+            transition: background 0.5s ease;
+        }
+
+        .reset-container {
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            transition: transform 0.3s ease, opacity 1s ease, width 1s ease;
+            opacity: 0;
+            width: 200px;
+        }
+
+        .reset-container.show-animation {
+            transform: translateX(0);
+            opacity: 1;
+            width: 300px;
+        }
+
+        @keyframes swipe {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+                visibility: hidden;
+                display: none;
+                pointer-events: none;
+            }
+            1% {
+                transform: translateX(0);
+                opacity: 0;
+                visibility: visible;
+                display: block;
+                pointer-events: none;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+                visibility: visible;
+                display: block;
+                pointer-events: auto;
+            }
+        }
+
+        .reset-container h2 {
+            margin: 0;
+            color: #333;
+        }
+
+        .reset-container .lock-icon {
+            font-size: 48px;
+            margin: 20px;
+        }
+
+        .reset-container input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .reset-container button {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .reset-container button:active {
+            transform: scale(0.9);
+        }
+
+        .error-message {
+            color: red;
+        }
+    </style>
+</head>
+<body ng-controller="ResetPasswordController">
+    <div class="reset-container show-animation">
+        <h2>Reset Password</h2>
+        <i class="fa fa-lock lock-icon"></i>
+        <form ng-submit="resetPassword()" name="form" onsubmit="return validate()" action="forgot.php" method="post">
+            <input type="text" ng-model="username" id="username" name="username" placeholder="Username (Registration Number)" required>
+            <div class="error-message" id="error-message"></div>
+            <button type="submit" id="reset-button">Reset Password</button>
+        </form>
+        <p ng-if="message">{{ message }}</p>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+        var app = angular.module('universityLoginApp', []);
+
+        app.controller('ResetPasswordController', function($scope, $http) {
+            $scope.resetPassword = function() {
+                var valid = validate();
+                if (valid) {
+                    // Make an HTTP request to fetch the message from forgot.php
+                    $http.get('forgot.php')
+                        .then(function(response) {
+                            $scope.message = response.data;
+                        })
+                        .catch(function(error) {
+                            $scope.message = "An error occurred while fetching the message.";
+                        });
+                }
+            };
+
+            function validate() {
+                var a = document.getElementById('username').value;
+
+                if (a === "") {
+                    document.getElementById('error-message').innerText = 'Please enter your username';
+                    return false;
+                }
+
+                return true;
+            }
+        });
+    </script>
+</body>
+</html>

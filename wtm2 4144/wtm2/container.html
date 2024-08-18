@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="style.css">
+<style>
+  
+    .event {
+              background-color: #fff;
+              border-radius: 8px;
+              box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+              padding: 1.5rem;
+              margin-bottom: 2rem;
+              width:400px;
+              height:400px;
+              margin-left: 130px;
+            }
+            .event h2 {
+              color: #333;
+              margin-bottom: 0.5rem;
+            }
+            .event p {
+              color: #666;
+              margin-bottom: 1rem;
+            }
+            .event button {
+              background-color: #333;
+              color: #fff;
+              border: none;
+              padding: 0.5rem 1rem;
+              border-radius: 4px;
+              cursor: pointer;
+            }
+            div.card-container {
+            display: flex;
+            justify-content: space-between; /* Distribute items evenly along the row */
+            gap: 20px; /* Add some spacing between cards */
+          }
+          
+          div.card {
+            width: 600px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            text-align: center;
+            height: 400px;
+            margin-left: 90px;
+            margin-right:30px;
+          }
+          
+          div.header1 {
+            background-color: white;
+            color: red;
+            padding: 10px;
+            font-size: 10px;
+          }
+          
+          div.container {
+            padding: 10px;
+          }
+            .images img
+            {
+                background-size:cover ;
+                background-repeat: no-repeat;
+                height: 1000px;
+                width:700px;
+                background-color:white;
+                border:2px solid black;
+            }
+</style>
+<title>Contribution</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('contributeCtrl', function($scope) {
+        $scope.openLink = function(link) {
+            window.open(link, "_self");
+        };
+    });
+</script>
+</head>
+<body ng-controller="contributeCtrl">
+  <nav>
+  <div class="header">
+    <div class="logo">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsmQFzyuhgatBCcZ95dVi2DDAKE8Q3Enb7Jw&usqp=CAU" alt="logo" width="100" height="100">
+    </div>
+    <div class="buttoncol">
+
+        <a  href="home.html"><i class="fa fa-fw fa-home"></i> Home</a> 
+        <a href="details.html">Alumni Details</a>
+        <a href="events.html">Events</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="container.html">Contribute</a>
+        <a href="contact.html"><i class="fa fa-fw fa-envelope"></i> Contact</a> 
+        <a href="login.html"><i class="fa fa-fw fa-user"></i> Login</a>
+          
+    </div>
+  </div>
+</nav>
+    <img  style="height:500px;width:1100px;margin-left:190px;margin-top:40px;" src="1.jpg">
+    <h1 style="margin-left:130px;">How alumni can help current students in their career success</h1>
+    <hr style="margin-left:130px;margin-right: 120px;">
+    <div>
+            <img style="margin-left:130px;margin-right: 120px;"src="https://secure.gravatar.com/avatar/21b33d83b86a58484cb91ba7933102a9?s=96&d=mm&r=g">
+            <span style="position: absolute;top:730px;left:300px;">Written by Tushar Agarwal</span>
+    </div>
+    <hr style="margin-left:130px;margin-right: 120px;">
+    <p style="font-size:20px;font-family: 'Times New Roman', Times, serif;margin-left:130px;margin-right: 120px;">There are several benefits of having an engaged alumni community. Alumni engagement leads to lifelong alumni relationships, alumni helping the current students choose the right career stream or college, internships, placements and donations or can even fund scholarships. Alumni management, when done in the right way, can help current students in their career success and earn a reputation for their institutions.<br> 
+
+        <strong style="font-size:23px;">How to build alumni relationship</strong><br>
+        Today, many institutions are leveraging digital technologies to support remote learning for their students, thanks to the pandemic. At the same time, institutions can also utilize technologies like alumni relationship programs to build engaging experiences for their alumni relations beyond the student’s life cycle after graduation. For example, investing in alumni management software can be a good idea.
+        
+       <br><strong style="font-size:23px;"> How do alumni help current students in their career success? </strong><br>
+        
+       <strong style="font-size:23px;"> #1. Helping students choose the right career</strong><br> 
+        
+        As an institution, are you leveraging alumni engagement best practices to help your students choose the right career stream? 
+        
+        An important benefit of alumni management is alumni helping students in their career success. Career success includes helping students choose the right subjects, preparing for their target college/university and guiding them about the career streams they should opt for based on the student’s interests.
+        
+        Alumni relations can also play a vital role during the college/university admission process. When students and parents get a chance to meet and speak to the alumni, it creates trust in them that helps them make the right decision.
+        
+        Lastly, they can also guide students preparing for recruitment interviews because they know what corporates expect from the fresh graduates and groom them accordingly.<br>
+        
+        <br><strong style="font-size:23px;">#2. Reducing silos for improved student experience</strong><br>
+        
+        By building a strong alumni engagement program, institutions can improve their student experience. When students see the outcome of the former students as they enter the job market, it can create a stronger impact than saying the same thing on an admission brochure. <br>
+        
+        <br><strong style="font-size:23px;">#3. Alumni success stories for motivation</strong><br>
+        
+        Invite your successful alumni during the foundation day or annual day and let them share their success stories. These real-life stories are great sources of motivation for your current students. 
+        
+        Alternatively, you can schedule virtual networking fairs where students and their parents can ask for career guidance from the alumni community.<br>
+        
+        <br><strong style="font-size:23px;">#4. Parents chat with alumni</strong><br>
+        
+        Naturally, parents are anxious about the future of their children. Enable them to chat with the alumni through the alumni management app to get suitable suggestions and guidance from the alumni network. <br>
+        
+        <br><strong style="font-size:23px;">#5. Solicit scholarships to support students</strong><br>
+        
+        The well-earning alumni can support their school with donations or fund scholarships for weaker sections.<br>
+        
+        If you’re wondering how to engage alumni, there are many alumni relationship management software available. Need a quick demo of AlmaShines? Call us now! </p>
+    <hr style="margin-left:130px;margin-right: 120px;">
+    <h1 style="margin-left:130px;">Related Articles</h1>
+    <div class="card-container">
+    <div class="card">
+        <div class="header1">
+        <img src="https://www.almashines.io/wp-content/uploads/2021/09/1645172219869-300x197.jpeg">
+        <br>
+        <h1>5 Virtual Alumni Meet Ideas to Boost Alumni....</h1>
+        <br>
+        <br>
+        <button ng-click="openLink('c1.html')" style="background-color:lavenderblush">Read more</button>
+        </div>
+    </div>
+    <div class="card">
+        <div class="header1">
+            <img src="https://www.almashines.io/wp-content/uploads/2021/09/unnamed-300x200.jpg">
+            <br>
+        <h1>5Hacks To Ensure Your Alumni Meet Becomes....</h1>
+        <br>
+        <br>
+        <button ng-click="openLink('c2.html')" style="background-color:lavenderblush">Read more</button>
+        </div>
+    </div>
+    <div class="card">
+        <div class="header1">
+            <img style="width:330px;" src="https://www.almashines.io/wp-content/uploads/2020/12/video-conferencing-illustration-300x162.jpg">
+            <br>
+        <h1>The Ultimate Guide to Conduct Virtual Alumni....</h1>
+        <br>
+        <br>
+        <button ng-click="openLink('c3.html')" style="background-color:lavenderblush">Read more</button>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

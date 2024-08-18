@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <!-- Include AngularJS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <!-- Your existing styles and other head content -->
+  <style>
+    .header
+{
+    background-color:#0bc2ef;
+    padding: 5px;
+    padding-bottom:-30px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom:-45px;
+    height:90px;
+}
+.logo
+{
+    display:flex;
+    align-items: center;
+    height:80px;
+}
+.logo img
+{
+    margin-left:20px;
+    height:80px;
+    width:80px;
+}
+
+nav{
+    color:white;
+    text-align: right;
+    padding:15px;
+}
+nav a{
+    padding:15px;
+    margin-top:10 px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    color:white;
+    font-size: 20px;
+}
+nav input
+{
+    margin-top:20px;
+    text-size-adjust:inherit;
+
+}
+.buttoncol input
+{
+    background-color:darkgray;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-right: 10px;
+}
+.buttoncol nav
+{
+    padding-top: 40px;
+}
+.buttoncol input
+{
+    margin-top: 35px;
+    
+    padding-bottom: -4px;
+}
+   #su{
+   background-image: url("image1.jpg");
+   }
+   td {
+     border: 2px solid black;
+     text-align: left;
+     padding: 10px;
+    }
+       th {
+         background-color: #000000;
+         color: white;
+         padding: 10px;
+       }
+   footer{
+   background-color: black;
+   color: white;
+   text-align: center;
+   padding: 1rem 0;
+   }
+
+   
+   .fa:hover {
+       opacity: 0.7;
+       padding:10px;
+   }
+  </style>
+</head>
+<body id="su" ng-controller="myController">
+  <nav>
+     <div class="header">
+        <div class="logo">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsmQFzyuhgatBCcZ95dVi2DDAKE8Q3Enb7Jw&usqp=CAU" alt="logo" width="100" height="100">
+        </div>
+        <div class="buttoncol">
+              
+         <a  href="home.html"><i class="fa fa-fw fa-home"></i> Home</a> 
+         <a href="details.html">Alumni Details</a>
+         <a href="events.html">Events</a>
+         <a href="gallery.html">Gallery</a>
+         <a href="container.html">Contribute</a>
+         <a href="contact.html"><i class="fa fa-fw fa-envelope"></i> Contact</a> 
+         <a href="login.html"><i class="fa fa-fw fa-user"></i> Login</a>
+              
+        </div>
+      </div>
+  </nav>
+
+  <center>
+    <h1 style="color:red;margin-top: 40px;">COORDINATOR DETAILS</h1>
+  </center>
+
+  <center>
+    <!-- AngularJS will handle the table data -->
+    <table border="2" solid black style="width: 95%; background-color: white; margin-top: 50px;">
+      <tr>
+        <th>S.No</th>
+        <th>Profession</th>
+        <th>Coordinator</th>
+        <th>Email</th>
+        <th>Phone</th>
+      </tr>
+      <tr ng-repeat="coordinator in coordinators">
+        <td>{{ coordinator.SNo }}</td>
+        <td>{{ coordinator.Profession }}</td>
+        <td>{{ coordinator.Coordinator }}</td>
+        <td>{{ coordinator.Email }}</td>
+        <td>{{ coordinator.Phone }}</td>
+      </tr>
+    </table>
+  </center>
+
+  <!-- Your existing footer and other body content -->
+
+  <!-- Include AngularJS module and controller -->
+  <script>
+    angular.module('myApp', [])
+      .controller('myController', function ($scope) {
+        // Sample data for coordinators
+        $scope.coordinators = [
+          { SNo: 1, Profession: 'Director of Alumni Relations', Coordinator: 'Yvette Alvarado', Email: 'lalvarado@law.utexas.edu', Phone: '512-232-1566' },
+{ SNo: 2, Profession: 'Chief Development Officer and Executive Director of Alumni Relations', Coordinator: 'Michael Barasch', Email: 'Michael.Barasch@austin.utexas.edu', Phone: '412-720-4918' },
+{ SNo: 3, Profession: 'Development Associate', Coordinator: 'Ashlyn Bentley', Email: 'ashlyn.bentley@law.utexas.edu', Phone: '312-450-5984' },
+{ SNo: 4, Profession: 'Senior Administrative Associate', Coordinator: 'Lindsey Bloch', Email: 'lindsey.bloch@law.utexas.edu', Phone: '414-368-3689' },
+{ SNo: 5, Profession: 'Development Associate', Coordinator: 'Devin Brumfield', Email: 'devin.brumfield@austin.utexas.edu', Phone: '513-536-6497' },
+{ SNo: 6, Profession: 'Senior Director of Principal Gifts', Coordinator: 'Rachel Carson', Email: 'rachel.carson@utexas.edu', Phone: '770-238-2477' },
+{ SNo: 7, Profession: 'Events Program Coordinator', Coordinator: 'Laura Elander', Email: 'laura.elander@law.utexas.edu', Phone: '512-232-1334' },
+{ SNo: 8, Profession: 'Assistant Director of Development, Major Gifts', Coordinator: 'Ron Hill', Email: 'ron.hill@austin.utexas.edu', Phone: '467-346-8466' },
+{ SNo: 9, Profession: 'Director of Estate and Gift Planning', Coordinator: 'Jennifer Monday Goldman ’00', Email: 'jgoldman@law.utexas.edu', Phone: '512-232-9112' },
+{ SNo: 10, Profession: 'Senior Director of Development, Major Gifts', Coordinator: 'Elizabeth Hundt ’10', Email: 'elizabeth.hundt@law.utexas.edu', Phone: '512-232-4775' },
+{ SNo: 11, Profession: 'Director of Principal Gifts', Coordinator: 'Nick Jutila', Email: 'nick.jutila@law.utexas.edu', Phone: '356-357-8846' },
+{ SNo: 12, Profession: 'Director of Alumni Events', Coordinator: 'Natzyeli Leugers', Email: 'nleugers@law.utexas.edu', Phone: '512-232-1223' },
+{ SNo: 13, Profession: 'Communications Coordinator', Coordinator: 'Samantha Padgett', Email: 'samantha.padgett@law.utexas.edu', Phone: '512-232-1309' },
+{ SNo: 14, Profession: 'Director of Development, Annual Giving', Coordinator: 'Jennifer Sloan ’98', Email: 'jsloan@law.utexas.edu', Phone: '512-232-0729' },
+{ SNo: 15, Profession: 'Associate Director of Development Operations', Coordinator: 'Amy Willson', Email: 'amy.willson@law.utexas.edu', Phone: '512-232-5998' },
+{ SNo: 16, Profession: 'Senior Associate Director of Development, Major Gifts', Coordinator: 'Sarah Welbes', Email: 'sarah.welbes@austin.utexas.edu', Phone: '512-232-0546' },
+{ SNo: 17, Profession: 'Director of Reunions', Coordinator: 'Lorraine Sarles ’09', Email: 'lsarles@law.utexas.edu', Phone: '512-232-6543' },
+{ SNo: 18, Profession: 'Director of External Affairs and Mentoring', Coordinator: 'Remi Ratliff 95', Email: 'rratliff@law.utexas.edu', Phone: '512-232-3275' },
+{ SNo: 19, Profession: 'Development Specialist, Alumni Relations', Coordinator: 'Shelby Pritchett', Email: 'shelby.pritchett@law.utexas.edu', Phone: '512-232-0365' },
+{ SNo: 20, Profession: 'Senior Administrative Associate', Coordinator: 'Julia Oldham', Email: 'julia.oldham@law.utexas.edu', Phone: '512-232-8538' }
+
+
+
+
+          // Add more coordinators as needed
+          
+       ];
+      });
+  </script>
+</body>
+</html>
